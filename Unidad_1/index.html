@@ -7,46 +7,54 @@
     <title>Index</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-    <style>
-    .menu li{
-    padding: 10px;
-    display: block;
-    /*border: 1px solid black;*/
-    }
-    .menu li a{
-    padding: 10px;
-    text-decoration: none;
-    }
-    .menu li a:hover{
-    text-decoration: none;
-    color: white;
-    background-color:salmon;
-    }
-
-    </style>
+<base target="_blank">
 
 </head>
 <body>
 <div class="container">
 
     <h1>Archivos de la clase Front-End</h1>
-    Juan Antonio Huerta Rodríguez
+    <p class="name">Juan Antonio Huerta Rodríguez</p> 
 
     <h2>Actividades en clase</h2>
-    <ul class="menu">
-        <li><a href="pagina 1/pagina1.html">Pagina 1 </a></li>
-        <li><a href="pagina 2/pagina2.html">Pagina 2 </a></li>
-        <li><a href="ejemplo_menu/menu.html">Ejemplo Menú </a></li>
-        <li><a href="bootstrap/bootstrap1/index.html">Bootstrap 1</a></li>
-        <li><a href="bootstrap/bootstrap2/index.html">Bootstrap 2</a></li>
-        <li><a href="bootstrap/bootstrap3/index.html">Bootstrap 3</a></li>
-    </ul>
-    <h2>Practicas</h2>
-    <ul class="menu">
-        <li><a href="practica1/practica1.html">Practica 1 </a></li>
-        <li><a href="practica2/galeria.html">Practica 2 </a></li>
-    </ul>
+
+    <div class="btn-group-vertical btn-group-lg" role="group" aria-label="Button group with nested dropdown">
+        <a href="pagina 1/pagina1.html" type="button" class="btn btn-outline-dark">P&aacute;gina 1</a>
+        <a href="pagina 2/pagina2.html" type="button" class="btn btn-outline-dark">P&aacute;gina 2</a>
+        <a href="ejemplo_menu/menu.html" type="button" class="btn btn-outline-warning">Ejemplo men&uacute;</a>
+      
+        <div class="btn-group btn-group-lg dropright" role="group">
+          <button id="btnGroupDrop1" type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Bootstrap
+          </button>
+          <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+            <a class="dropdown-item" href="bootstrap/bootstrap1/index.html">Bootstrap 1</a>
+            <a class="dropdown-item" href="bootstrap/bootstrap2/index.html">Bootstrap 2</a>
+            <a class="dropdown-item" href="bootstrap/bootstrap3/index.html">Bootstrap 3</a>
+            <a class="dropdown-item" href="bootstrap/bootstrap4/index.html">Bootstrap 4</a>
+            <a class="dropdown-item" href="bootstrap/bootstrap_startBootstrap/index.html">Bootstrap Profile</a>
+          </div>
+        </div>
+        <div class="btn-group btn-group-lg dropright" role="group">
+          <button id="btnGroupDrop1" type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Javascript
+          </button>
+          <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+            <a class="dropdown-item" href="javascript_activities/javascript1/index.html">Javascript 1</a>
+            <a class="dropdown-item" href="javascript_activities/javascript2/index.html">JQuery</a>
+            <a class="dropdown-item" href="javascript_activities/javascript3/index.html">Calculadora</a>
+          </div>
+        </div>
+          
+
+      </div>
+    
+      <h2>Pr&aacute;cticas</h2>
+
+    <div class="btn-group-vertical btn-group-lg" role="group" aria-label="Button group with nested dropdown">
+      <a href="practica1/practica1.html" type="button" class="btn btn-outline-dark">Pr&aacute;ctica 1</a>
+      <a href="practica2/galeria.html" type="button" class="btn btn-outline-dark">Pr&aacute;ctica 2</a>
+    </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
