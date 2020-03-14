@@ -2,7 +2,7 @@ jQuery(document).ready(function (){
     var api_key = '93a1875e';
     $("#btn_buscar").click(function() {
         $.get(
-            "http://www.omdbapi.com",
+            "https://www.omdbapi.com",
             {
             apikey: api_key,
             r: "json",
