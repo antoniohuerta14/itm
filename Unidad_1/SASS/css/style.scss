@@ -1,0 +1,62 @@
+$colorLetra:rgb(32, 32, 32);
+$colorNav:rgb(255, 225, 55);
+$letraPrincipal: 'Raleway', sans-serif;
+$letraTitulo: 'Bebas Neue', cursive;
+$regular: '400';
+*{
+    font-family: $letraTitulo;
+    font-size: x-large;
+    font-style: initial;
+    color: $colorLetra;
+}
+.titulo{
+    text-align: center;
+    padding:10px;
+    h1{
+        font-size:50px;
+    }
+    h2{
+        font-size: 20px;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 250;
+    }
+}
+.menu{
+    background-color: $colorNav;
+    list-style: none;
+    padding: 10px;
+    max-width: 1024px;
+    margin: auto;
+    text-align: center;
+    li{
+        display: inline;
+        padding: 10px;
+        /*border: 1px solid black;*/ 
+        &:hover{
+            text-decoration: none;
+            background-color:rgb(255, 252, 89);
+            text-transform: uppercase;
+        }
+    }
+    li a{
+        color: rgb(71, 71, 71);
+        padding: 10px;
+        text-decoration: none;
+        &:hover{
+            color: rgb(150, 150, 150);
+        }
+    }
+}
+
+.content{
+    margin-left: 120px;
+    margin-right: 120px;
+}
+
+.main_content{
+    p{
+        font-family: $letraPrincipal;
+        font-weight: $regular;
+        text-align: justify;
+    }
+}
