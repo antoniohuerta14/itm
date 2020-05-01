@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueJS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:wght@100;200;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/e0bf9fad4a.js" crossorigin="anonymous"></script>
+    <style>
+        *{
+            font-family: 'Raleway', sans-serif;
+        }
+        .header{
+            margin: 0px; 
+            padding: 15px;
+            background-color: rgb(255, 254, 209);
+        }
+        .header h1,h3{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>VueJS</h1>
+        <div class="subtitle"><h3>Cuentas por Pagar</h3></div>
+    </div>
+    <div class="container" id="app">
+        <table class="table">
+            <caption>Developer: Antonio Huerta</caption>
+            <thead>
+                <tr>
+                    <th style="width: 20px;"></th>
+                    <th style="width:300px;">Servicio</th>
+                    <th style="width:200px;">Monto</th>
+                    <th style="width:100px;">Pagado?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td></td>
+                  <td>
+                    <input type="text" class="form-control" v-model="newEntry.name" />
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" v-model="newEntry.amount" />
+                  </td>
+                  <td>
+                    <button @click="add()" type="button" class="btn btn-success btn-block">Agregar</button>
+                  </td>
+                </tr>
+                <tr v-if="items.length === 0">
+                  <td colspan="4" class="text-center">
+                    No se encuentra ningun pago a realizar
+                  </td>
+                </tr>
+                <tr v-for="item, index in items">
+                  <td>
+                    <button 
+                      @click="remove(index)"
+                      type="button" class="btn btn-danger btn-xs">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                  <td>{{ item.name }}</td>
+                  <td>${{ item.amount.toFixed(2) }} MXN</td>
+                  <td class="text-center" :title="item.paid ? 'Si' : 'No'">
+                    <button
+                      @click="changeToPaid(item)"
+                      class="btn btn-default btn-sm"
+                      :class="{ 'btn-success': item.paid  }">
+  
+                        <i v-if="item.paid" class="fas fa-check"></i>
+                        <i v-if="!item.paid" class="fas fa-times"></i>
+  
+                      </button>
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td></td>
+                  <td class="text-right">Por pagar</td>
+                  <td>${{ totalAmount(0) }} MXN</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td class="text-right">Pagado</td>
+                  <td>${{ totalAmount(1) }} MXN</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <th class="text-right">Total</td>
+                  <th>${{ totalAmount(2) }} MXN</td>
+                  <td></td>
+                </tr>
+              </tfoot>
+        </table>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+      el: '#app', // Elemento
+      data: { // Parametros
+        newEntry: {
+          name: '',
+          amount: 0
+        },
+        items: [{
+            name: 'Internet 50Mb',
+            amount: 500,
+            paid: false
+          },
+          {
+            name: 'Colegiatura',
+            amount: 3100,
+            paid: true
+          },
+        ]
+      },
+      methods: {
+        remove: function(index) {
+          this.items.splice(index, 1);
+        },
+        // Ecmascript 6 syntax
+        add() {
+          this.items.push({
+            name: this.newEntry.name,
+            amount: parseFloat(this.newEntry.amount),
+            paid: false
+          });
+
+          this.newEntry.name = '';
+          this.newEntry.amount = 0;
+        },
+        changeToPaid(item) {
+          item.paid = !(item.paid);
+        },
+        totalAmount(t){
+            var total = this.items.reduce(function(a, b) {
+              switch(t) {
+                case 0: return a + (!b.paid ? b.amount : 0);
+                case 1: return a + (b.paid ? b.amount : 0);
+                case 2: return a + b.amount;
+              }
+            }, 0);
+
+            return total.toFixed(2);
+        }
+      }
+    });
+    </script>
+</body>
+</html>
